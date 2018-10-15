@@ -1,0 +1,70 @@
+div {
+	font-family: 'Roboto', sans-serif;
+}
+
+table {
+	background-color: #FFFAF0;
+	border-spacing: 5px;
+	margin: auto;
+	margin-bottom: 25px;
+	width: 25%;
+}
+h1 {
+	font-family: 'Roboto', sans-serif;
+	font-size: 36px;
+	text-shadow: 4px 4px 4px #aaa;
+}
+td {
+	font-family: 'Roboto', sans-serif;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid black;
+}
+
+td:hover {
+	background-color: blue;
+	cursor: pointer;
+}
+h1 {
+	color:blue;
+	text-align: center;
+
+}
+button {
+	padding: 10px;
+	margin-bottom: 20px;
+	display: inline-block;
+	/*width: 150px;*/
+	text-align: center;
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	border: 1px solid #888;
+	font-family: 'Roboto', sans-serif;
+}
+
+button:hover {
+	background-color: green;
+	cursor: pointer;
+}
+
+.even {
+	background: silver;
+    color: white;
+}
+
+.button {
+	margin: auto;
+	width: 10%;
+}
+
+#gameMessage {
+	margin: auto;
+	width: 30%;
+	text-align: center;
+	vertical-align: middle;
+	font-style: italic;
+}

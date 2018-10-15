@@ -1,96 +1,131 @@
-console.log('Checking connection');
-var winMessage = 'wins!';
-var flag = 1;
-// on click of a square add a X or O
+
+let flag = 1;
+let pieces = {
+	X: false,
+	O: false
+}
+let gameOver = false;
+
+var elements = document.querySelectorAll("td");
+var turn = document.getElementById('gameMessage');
+
+// add event Listener to each element
+elements.forEach( (node) => {
+	node.addEventListener('click', function() {
+		if ( node.innerHTML === ' ' && flag === 1 && !gameOver ) {
+			node.innerHTML = 'X';
+			gameMessage.innerHTML = 'O\'' + 's Turn';
+			flag = 0;
+			checkWinner();
+		} else if (node.innerHTML === ' ' && !gameOver) {
+			node.innerHTML = 'O';
+			gameMessage.innerHTML = 'X\'' + 's Turn';
+			flag = 1;
+			checkWinner();
+		}
+	});
+});
 
 let clearGame = () => {
 	var table = document.getElementById('board');
 	for ( var i = 0, row; row = table.rows[i]; i++ ) {
 		for ( var j = 0, col; col = row.cells[j]; j++ ) {
-			col.innerHTML = '';
+			col.innerHTML = ' ';
 		}
 	}
 	flag = 1;
+	pieces.X = false;
+	pieces.O = false;
+	gameOver = false;
+	gameMessage.innerHTML = 'Start a new game: X\'' + 's Turn';
 }
 
-document.getElementById('one').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('one').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('one').innerHTML = 'O';
-			flag = 1;
+let checkAllRows = () => {
+	var rows = document.getElementById("board").getElementsByTagName("tr");
+	// console.log(rows);
+	for (var i = 0; i < rows.length; i++) {
+		if ( checkRow(rows[i].children) ) {
+			if (pieces.X) {
+				gameMessage.innerHTML = "X Wins";
+				gameOver = true;
+			} else {
+				gameMessage.innerHTML = "O Wins";
+				gameOver = true;
+			}
 		}
-});
-document.getElementById('two').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('two').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('two').innerHTML = 'O';
-			flag = 1;
+	};
+} 
+
+let checkRow = (row) => {
+	var x = 0;
+	var o = 0;
+	// loop through rows
+	for (var i = 0; i < row.length; i++) {
+		if(row[i].innerHTML === 'X') {
+			x++;
+		} else if (row[i].innerHTML === 'O') {
+			o++;
 		}
-});
-document.getElementById('three').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('three').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('three').innerHTML = 'O';
-			flag = 1;
-		}
-});
-document.getElementById('four').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('four').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('four').innerHTML = 'O';
-			flag = 1;
-		}
-});
-document.getElementById('five').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('five').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('five').innerHTML = 'O';
-			flag = 1;
-		}
-});
-document.getElementById('six').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('six').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('six').innerHTML = 'O';
-			flag = 1;
-		}
-});
-document.getElementById('seven').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('seven').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('seven').innerHTML = 'O';
-			flag = 1;
-		}
-});
-document.getElementById('eight').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('eight').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('eight').innerHTML = 'O';
-			flag = 1;
-		}
-});
-document.getElementById('nine').addEventListener('click', function() {
-		if (flag === 1) {
-			document.getElementById('nine').innerHTML = 'X';
-			flag = 0;
-		} else {
-			document.getElementById('nine').innerHTML = 'O';
-			flag = 1;
-		}
-});
+	}
+	if (x === 3) { 
+		pieces.X = true;
+		return true; 
+	} else if (o === 3) {
+		pieces.O = true;
+		return true;
+	} else {
+		return false;
+	}
+}
+
+let checkAllColumns = () => {
+	var columns = document.getElementById("board").getElementsByTagName("td");
+	var array = [];
+	
+	for (var i = 0; i < columns.length; i++) {
+		array.push(columns[i].innerHTML.charCodeAt());
+	}
+	if (array[0] + array[3] + array[6] === 264 || 
+		array[1] + array[4] + array[7] === 264 || 
+		array[2] + array[5] + array[8] === 264) {
+			pieces.X = true;
+			gameMessage.innerHTML = "X Wins";
+			gameOver = true;
+			
+	} else if (array[0] + array[3] + array[6] === 237 || 
+		array[1] + array[4] + array[7] === 237 || 
+		array[2] + array[5] + array[8] === 237) {
+			pieces.O = true;
+			gameMessage.innerHTML = "O Wins"
+			gameOver = true;
+	}
+}
+
+let checkAllDiagonals = () => {
+	var columns = document.getElementById("board").getElementsByTagName("td");
+	var array = [];
+
+	for (var i = 0; i < columns.length; i++) {
+		array.push(columns[i].innerHTML.charCodeAt());
+	}
+
+	if (array[0] + array[4] + array[8] === 264 || 
+		array[2] + array[4] + array[6] === 264) {
+		pieces.X = true;
+		gameMessage.innerHTML = "X Wins";
+		gameOver = true;
+	} else if (array[0] + array[4] + array[8] === 237 || 
+		array[2] + array[4] + array[6] === 237) {
+		pieces.O = true;
+		gameMessage.innerHTML = "O Wins";
+		gameOver = true;
+	}
+}
+
+let checkWinner = () => {
+	checkAllRows();
+	checkAllColumns();
+	checkAllDiagonals();
+}
+
+

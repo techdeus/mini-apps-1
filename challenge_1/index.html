@@ -3,63 +3,40 @@
   <head>
     <meta content="text/html" charset="utf-8">
     <title> Tic-Tac-Toe Sullivan Edition </title>    
-  	<style>
-  		table {
-  			width: 75%;
-  			background-color: #FFFAF0;
-  			margin-bottom: 20px;
-  			border-spacing: 5px;
-  		}
-  		
-  		td {
-  			height: 50px;
-  			width: 50px;
-  			text-align: center;
-  			vertical-align: middle;
-  			border: 1px solid black;
-  		}
-  		
-  		td:hover {
-  			background-color: blue;
-  		}
-  		h1 {
-  			color:blue;
-  			text-align: center;
-
-  		}
-  		button {
-  			padding: 10px;
-  			margin-bottom: 20px;
-  		}
-
-  	</style>
+  	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  	<link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
   	<div class="container">
   		<h1> Tic Tac Toe Sullivan Edition </h1>
-  		<button onclick="clearGame()">New Game</button>
-
+  		<div class="button">
+  			<button id="newGame" onclick="clearGame()">New Game</button>
+  		</div>
+  		
+  		<div>
   		<table id="board">
   			<tr>
-  				<td id="one" class="even"></td>
-  				<td id="two"></td>
-  				<td id="three" class="even"></td>
+  				<td id="one" class="even"> </td>
+  				<td id="two"> </td>
+  				<td id="three" class="even"> </td>
   			</tr>
   			<tr>
-  				<td id="four"></td>
-  				<td id="five" class="even"></td>
-  				<td id="six"></td>
+  				<td id="four"> </td>
+  				<td id="five" class="even"> </td>
+  				<td id="six"> </td>
   			</tr>
   			<tr>
-  				<td id="seven" class="even"></td>
-  				<td id="eight" class="even"></td>
-  				<td id="nine" class="even"></td>
+  				<td id="seven" class="even"> </td>
+  				<td id="eight"> </td>
+  				<td id="nine" class="even"> </td>
   			</tr>
   		</table>
+  		</div>
+  		
+  		<div id="gameMessage">Begin Game: X's Turn</div>
 
-  		<div class="winner"></div>
   	</div>
-  <script src="app.js"></script>
+  	<script src="app.js"></script>
   </body>	
 </html>
 
