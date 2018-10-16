@@ -9,8 +9,9 @@
   <body>
   	<div class="container">
   		<h1> Tic Tac Toe Sullivan Edition </h1>
-  		<div class="button">
-  			<button id="newGame" onclick="clearGame()">New Game</button>
+  		
+  		<div class="playButton">
+  			<button class="myButton" onclick="javascript:clearGame()">Play Tic Tac Toe</button>
   		</div>
   		
   		<div>
@@ -33,8 +34,21 @@
   		</table>
   		</div>
   		
-  		<div id="gameMessage">Begin Game: X's Turn</div>
-
+  		<div id="gameMessage">BEGIN GAME: X's Turn</div>
+  		<div class="scoreboard">
+  			<h1> Scoreboard </h1>
+  			<table id="scoreboard">
+  				<tr>
+  					<th> X </th>
+  					<th> O </th>
+  					<th colspan="2"> Ties </th>
+  				</tr>
+  				<tr>
+  					<td id="XCount" class="even"></td>
+  					<td id="OCount"></td>
+  					<td id="Ties" colspan="2" class="even"></td>
+  				</tr>	
+  		</div>
   	</div>
   	<script src="app.js"></script>
   </body>	

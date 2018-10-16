@@ -1,4 +1,4 @@
-div {
+body {
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -12,7 +12,11 @@ table {
 h1 {
 	font-family: 'Roboto', sans-serif;
 	font-size: 36px;
-	text-shadow: 4px 4px 4px #aaa;
+	text-shadow: 4px 4px 4px black;
+	margin-bottom: 50px;
+	color:silver;
+	text-align: center;
+	text-decoration: black;
 }
 td {
 	font-family: 'Roboto', sans-serif;
@@ -24,41 +28,78 @@ td {
 }
 
 td:hover {
-	background-color: blue;
+	background-color: darkred;
 	cursor: pointer;
 }
-h1 {
-	color:blue;
-	text-align: center;
 
-}
 button {
-	padding: 10px;
-	margin-bottom: 20px;
-	display: inline-block;
-	/*width: 150px;*/
+	font-family: 'Roboto', sans-serif;
+	margin: auto;
+	margin-bottom: 25px;
+	width: 125px;
 	text-align: center;
 	background: whiteSmoke;
 	font-weight: bold;
 	color: #444;
 	text-decoration: none;
 	border: 1px solid #888;
-	font-family: 'Roboto', sans-serif;
+	
 }
 
 button:hover {
-	background-color: green;
+	/*background-color: green;*/
 	cursor: pointer;
+}
+
+.playButton {
+	text-align: center;
+}
+.myButton {
+	-moz-box-shadow:inset 0px 0px 15px 3px #23395e;
+	-webkit-box-shadow:inset 0px 0px 15px 3px #23395e;
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2e466e), color-stop(1, #415989));
+	background:-moz-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-webkit-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-o-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-ms-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e466e', endColorstr='#415989',GradientType=0);
+	background-color:#2e466e;
+	-moz-border-radius:17px;
+	-webkit-border-radius:17px;
+	border-radius:17px;
+	border:1px solid #1f2f47;
+	display:inline-flex;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:14px;
+	padding:8px 8px 8px 8px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 50px;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #415989), color-stop(1, #2e466e));
+	background:-moz-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:-webkit-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:-o-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:-ms-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#415989', endColorstr='#2e466e',GradientType=0);
+	background-color:#415989;
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
 }
 
 .even {
 	background: silver;
     color: white;
-}
-
-.button {
-	margin: auto;
-	width: 10%;
 }
 
 #gameMessage {
@@ -67,4 +108,13 @@ button:hover {
 	text-align: center;
 	vertical-align: middle;
 	font-style: italic;
+	color: silver;
+	font-style: bold;
+}
+
+#XCount, #OCount, #Ties {
+	font-family: 'Roboto', serif;
+	font-size: 24px;
+	color: darkred;
+
 }
