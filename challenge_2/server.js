@@ -29,7 +29,37 @@ app.post('/upload_json', (req, res) => {
 	// convert the data to csv
 	let convertedData = convertToCSV(JSON.parse(values));
 	
-	res.end(convertedData);
+	
+res.send(
+`<!DOCTYPE html>	
+<html>
+	<head>
+		<meta content="text/html" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<title> CSV Report Generator by MS </title>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+
+			<div><h2> CSV Report Generator </h2></div>
+			<div>
+				<form id="form" method="POST" action="/upload_json">
+				<div>
+					<textarea name="json" rows="30" cols="60" placeholder="Place your JSON data here" required="required"></textarea>	
+				</div>
+				<div>
+				<input type="submit" value="Submit">
+				</div>
+				</form>
+			</div>	
+			<div id="csvreport">${convertedData}</div>
+		</div>	
+	<script src="app.js"></script>
+	</body>	
+</html>
+`
+);
 
 });
 
@@ -56,7 +86,7 @@ let convertToCSV = (obj) => {
 			}
 		}
 	};
-	
+
 	helper(obj);
 	return `${string}`;
 };
@@ -91,6 +121,7 @@ let createContent = (obj) => {
 
 // Start & Initialize Web Server: listen on port 3000
 const port = 3000;
+
 app.listen(port, () => {
 	console.log(`CSV App listening on port ${port}!`);
 });
