@@ -39,14 +39,26 @@ let convertToCSV = (obj) => {
 	
 	// create headers
 	let headers = createHeaders(obj);
-	// create content
-
-	let line = createContent(obj);
-	
 	string += headers + '\r\n';
-	string += line + '\r\n';
 	
-	return `<h1>${string}</h1>`;
+	// create content
+	let firstContent = createContent(obj);
+	string += firstContent + '\r\n';
+	
+	let helper = (obj) => {
+		for (var key in obj) {
+			if (key === 'children') {
+				for (var i = 0; i < obj[key].length; i++) {
+					let line = createContent(obj[key][i]);
+					string += line + '\r\n';
+					helper(obj[key][i]);
+				}	
+			}
+		}
+	};
+	
+	helper(obj);
+	return `${string}`;
 };
 
 let createHeaders = (obj) => {
