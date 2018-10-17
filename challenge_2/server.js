@@ -25,7 +25,6 @@ app.post('/upload_json', (req, res) => {
 	var values = jsonData.json;
 	var jsonParseValues = JSON.parse(values);
 	
-	console.log(jsonParseValues);
 	// convert the data to csv
 	let convertedData = convertToCSV(JSON.parse(values));
 	
@@ -53,7 +52,7 @@ res.send(
 				</div>
 				</form>
 			</div>	
-			<div id="csvreport">${convertedData}</div>
+			<div id="csvreport"><pre>${convertedData}</pre></div>
 		</div>	
 	<script src="app.js"></script>
 	</body>	
