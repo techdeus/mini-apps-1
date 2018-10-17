@@ -1,0 +1,19 @@
+{
+  "name": "miniappday2",
+  "version": "1.0.0",
+  "description": "Marlon Sullivan's CSV Report Generator",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "author": "Marlon Sullivan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.4"
+  }
+}
