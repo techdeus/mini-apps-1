@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
+const mysql = require('mysql');
 
 const app = express();
 
@@ -22,3 +23,20 @@ app.get('/', (req, res) => {
 app.listen( (process.env.PORT || 3000), () => {
 	console.log(`Multistep Checkout App is listening on port ${process.env.PORT || 3000}!`);
 });
+
+
+// var connection = mysql.createConnection({
+// 	host: 'localhost',
+// 	user: 'root',
+// 	// password: '',
+// 	// database: 'shopping'
+// });
+
+// connection.connect(err => {
+// 	if (err) {
+// 		throw err;
+// 	}
+// 	console.log('Connected to mysql');
+// });
+
+
